@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,11 +19,13 @@ export default function RootLayout({ children }) {
           <link rel="icon" href="/logo-sm.png" sizes="any" />
         </head>
 
-        <body className={`${inter.className}`}>
+        <body className={`${inter.className}`} suppressHydrationWarning={true}>
           {/* header */}
           <Header />
 
           <main className="min-h-screen">{children}</main>
+
+          <Toaster richColors />
 
           {/* footer */}
           <footer className="bg-blue-50 py-12">
