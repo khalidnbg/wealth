@@ -8,8 +8,6 @@ import AccountCard from "./_components/AccountCard";
 async function DashboardPage() {
   const accounts = await getUserAccounts();
 
-  console.log(accounts);
-
   return (
     <div className="space-y-8">
       {/* Budget Progress */}
