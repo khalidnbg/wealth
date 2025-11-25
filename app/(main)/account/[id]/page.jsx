@@ -23,7 +23,7 @@ export default async function AccountPage({ params }) {
             {account.name}
           </h1>
           <p className="text-muted-foreground">
-            {account.type.charAt(0) + account.type.slice(1).toLowerCase()}{" "}
+            {account.type.charAt(0) + account.type.slice(1).toLowerCase()}
             Account
           </p>
         </div>
