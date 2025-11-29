@@ -5,9 +5,18 @@ import React from "react";
 import { Button } from "./ui/button";
 import { LayoutDashboard, PenBox } from "lucide-react";
 import { checkUser } from "@/lib/checkUser";
+import { debugLog, reportError } from "@/lib/env-check";
 
 const Header = async () => {
-  await checkUser();
+  try {
+    debugLog("Header component: Checking user...");
+    await checkUser();
+    debugLog("Header component: User check completed");
+  } catch (error) {
+    console.error("Header component: Error in checkUser:", error);
+    reportError(error, { component: "Header", function: "checkUser" });
+    // Continue rendering even if checkUser fails
+  }
 
   return (
     <div className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b">
